@@ -5,7 +5,7 @@ from collections import namedtuple
 User = namedtuple("User", ["id", "tags", "subscribed_restaurants", "reservations", "saved_products", "comments"])
 
 def get_user(user_id):
-    url = f"https://mobiledev.chickenkiller.com/user/full/{user_id}"
+    url = f"https://mobiledev.chickenkiller.com/user/tag/{user_id}"
     response = requests.get(url)
     if response.status_code == 200:
         user_data = response.json()
