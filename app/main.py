@@ -17,7 +17,7 @@ class RecommendationRequest(BaseModel):
 
 @app.post("/recommend")
 def recommend(req: RecommendationRequest):
-    user = user_service.get_user()
+    user = user_service.get_user(req.user_id)
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
 

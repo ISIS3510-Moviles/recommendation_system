@@ -17,7 +17,7 @@ def build_user_profile(user):
         for tag in r["restaurant"]["tags"]:
             tag_weights[tag.lower()] += 0.6
     for p in user.saved_products:
-        for tag in p["tags"]:
+        for tag in p.get("tags", []):
             tag_weights[tag.lower()] += 0.5
     for c in user.comments:
         comment_rating = c.get("rating", 3)

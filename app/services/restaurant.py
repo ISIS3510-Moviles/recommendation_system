@@ -5,7 +5,7 @@ from collections import namedtuple
 # Restaurant Model
 Restaurant = namedtuple("Restaurant", ["id", "name", "tags", "rating", "comments", "reservations", "subscribers"])
 def get_restaurants():
-    url = "https://gist.githubusercontent.com/wareval0/b44914ed517ccd0bd288f99c2c7e03e3/raw/05fe8a71621f20447387e84cbda68efb1e271a29/restaurants_campus_bites.json"
+    url = "https://mobiledev.chickenkiller.com/restaurant/full/"
     response = requests.get(url)
     if response.status_code == 200:
         restaurant_data = response.json()
