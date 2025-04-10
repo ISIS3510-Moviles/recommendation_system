@@ -3,7 +3,7 @@ import requests
 from collections import namedtuple
 
 # Restaurant Model
-Restaurant = namedtuple("Restaurant", ["id", "name", "tags", "rating", "comments", "reservations", "subscribers"])
+Restaurant = namedtuple("Restaurant", ["id", "name", "profilePhoto", "tags", "rating", "comments", "reservations", "subscribers"])
 def get_restaurants():
     url = "https://mobiledev.chickenkiller.com/restaurant/full/"
     response = requests.get(url)
@@ -14,6 +14,7 @@ def get_restaurants():
             restaurant = Restaurant(
                 id=r["id"],
                 name=r["name"],
+                profilePhoto=r["profilePhoto"],
                 tags=r["tags"],
                 rating=r.get("rating", 3.5),
                 comments=r.get("comments", []),
