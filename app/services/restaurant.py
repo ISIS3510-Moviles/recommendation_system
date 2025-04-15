@@ -5,7 +5,7 @@ from collections import namedtuple
 # Restaurant Model
 Restaurant = namedtuple("Restaurant", ["id", "name", "profilePhoto", "tags", "rating", "comments", "reservations", "subscribers"])
 def get_restaurants():
-    url = "https://mobiledev.chickenkiller.com/restaurant/full/"
+    url = "http://35.209.247.8:8080/restaurant/full/"
     response = requests.get(url)
     if response.status_code == 200:
         restaurant_data = response.json()
