@@ -1,5 +1,6 @@
 from collections import defaultdict
 from datetime import datetime
+from dateutil.parser import isoparse
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -23,7 +24,7 @@ def build_user_profile(user):
         comment_rating = c.get("rating", 3)
         comment_likes = c.get("likes", 0)
         comment_date = c.get("datetime", NOW)
-        comment_date = datetime.strptime(comment_date, "%Y-%m-%dT%H:%M:%SZ") if isinstance(comment_date, str) else comment_date
+        comment_date = isoparse(comment_date) if isinstance(comment_date, str) else comment_date
 
         # weight according to antiquity of the comment
         days_since = (NOW - comment_date).days
