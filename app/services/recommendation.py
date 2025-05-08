@@ -1,10 +1,10 @@
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, timezone
 from dateutil.parser import isoparse
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-NOW = datetime.utcnow()
+NOW = datetime.now(timezone.utc)
 MAX_COMMENT_AGE_DAYS = 365 
 
 def build_user_profile(user):
